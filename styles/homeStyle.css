@@ -30,7 +30,7 @@
     box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
     border: 2px solid rgba(255, 255, 255, 0.075);
     margin-top: 5%;
-    background-color: rgba(70, 45, 28, 0.466);
+    background-color: rgba(53, 46, 42, 0.466);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
 }
@@ -51,6 +51,7 @@
     height: 150px;
     border-radius: 6px;
     margin-block: 5%;
+    object-fit: cover;
 }
 
 .perfilDetailsModule {
