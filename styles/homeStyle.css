@@ -1,0 +1,158 @@
+
+
+.mainBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    height: 95%;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.5);
+    -moz-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
+    box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
+    border: 2px solid rgba(255, 255, 255, 0.075);
+    background-color: rgba(87, 43, 11, 0.199);
+    backdrop-filter: blur(30px);
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
+    -moz-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
+    box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
+    border: 2px solid rgba(255, 255, 255, 0.075);
+    margin-top: 5%;
+    background-color: rgba(70, 45, 28, 0.466);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+.mainBlock p, .mainBlock h1, .mainBlock h2, .mainBlock h3{
+    color: white;
+}
+
+.blockPerfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blockPerfil img {
+    width: 150px;
+    height: 150px;
+    border-radius: 6px;
+    margin-block: 5%;
+}
+
+.perfilDetailsModule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 220px;
+    min-height: 350px;
+    padding: 10%;
+}
+
+.blockGradeFavoritos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 940px;
+    overflow: hidden;
+}
+
+.blockGradeFavoritos h1 {
+    font-size: 25px;
+}
+
+.blockMaterias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.blockMateria{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    min-width: 220px;
+    min-height: 400px;
+    max-width: 450px;
+    padding-inline: 2%;
+    padding-block: 1%;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.075);
+    margin-top: 5%;
+    margin-inline: 5%;
+}
+
+.blockMateria p, .blockMateria h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.blockMateriaTitle{
+    min-height: 20%;
+    min-width: 90%;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.185);
+    background-color: rgba(117, 99, 88, 0.486);
+    border-width: 3px;
+    padding: 10px;
+}
+
+.materiaDetailsModule {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.materiaDetailsModule p {
+    margin-inline: 5%;
+}
+
+.professorDetailsModule{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.professorDetailsModule p {
+    margin-inline: 5%;
+}
+
+.blockButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.blockButtons h3 {
+    margin-inline: 5%;
+}
+
+.blockButtons .block:hover {
+    cursor: pointer;
+}
+
+.blockButton {
+    width: 220px;
+}
