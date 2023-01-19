@@ -26,8 +26,10 @@ a, p, h1, h2, h3, input, label{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    width: 80%;
-    min-height: 90vh;
+    width: fit-content;
+    height: fit-content;
+    padding-block: 1%;
+    padding-inline: 2%;
     flex-wrap: wrap;
     border-radius: 10px;
     -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.5);
@@ -36,4 +38,74 @@ a, p, h1, h2, h3, input, label{
     border: 2px solid rgba(255, 255, 255, 0.075);
     background-color: rgba(87, 43, 11, 0.199);
     backdrop-filter: blur(30px);
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
+    -moz-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
+    box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
+    border: 2px solid rgba(255, 255, 255, 0.075);
+    margin-top: 5%;
+    background-color: rgba(53, 46, 42, 0.466);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+.blockButtons .block:hover {
+    cursor: pointer;
+}
+
+.blockButton {
+    width: 220px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.block.blockButton {
+    transition: all 0.2s;
+    transition-timing-function: ease-out;
+}
+
+.block.blockButton:hover {
+    transform: scale(1.05);
+    background: rgba(56, 26, 2, 0.377);
+}
+
+
+.footer a, .footer h1{
+    text-decoration: none;
+    margin-inline: 2%;
+}
+
+.footer img {
+    max-height: 20px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.5);
+    -moz-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
+    box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
+    border: 2px solid rgba(255, 255, 255, 0.075);
+    background-color: rgba(87, 43, 11, 0.199);
+    backdrop-filter: blur(30px);
+    height: 4vh;
+    margin-top: 0.5%;
+    padding-inline: 1%;
+    padding-block: 0.5%;
+    text-align: center;
 }
