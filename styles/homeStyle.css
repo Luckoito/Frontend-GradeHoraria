@@ -1,4 +1,4 @@
-.mainBlock p, .mainBlock h1, .mainBlock h2, .mainBlock h3, .mainBlock a{
+p, a, h1, h2, h3{
     color: white;
     text-decoration: none;
 }
@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1%;
 }
 
 .blockMenu img {
@@ -44,9 +45,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    max-width: 940px;
-    overflow: hidden;
-    margin-inline-start: 30px;
 }
 
 .blockGradeFavoritos h1 {
@@ -58,7 +56,9 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
+
 
 .blockMateria{
     display: flex;
@@ -66,15 +66,14 @@
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
-    min-width: 220px;
-    min-height: 400px;
-    max-width: 320px;
-    padding-inline: 2%;
-    padding-block: 1%;
+    height: 400px;
+    width: 220px;
+    padding-inline: 25px;
+    padding-block: 20px;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.075);
-    margin-top: 5%;
-    margin-inline: 5%;
+    margin-top: 20px;
+    margin-inline: 10px;
 }
 
 .blockMateria p, .blockMateria h2{
@@ -83,8 +82,8 @@
 }
 
 .blockMateriaTitle{
-    min-height: 20%;
-    min-width: 90%;
+    max-height: 30%;
+    width: 90%;
     border-radius: 5px;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.185);
