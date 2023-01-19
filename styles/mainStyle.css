@@ -20,3 +20,20 @@ a, p, h1, h2, h3, input, label{
     min-height: 97vh;
     flex-direction: column;
 }
+
+.mainBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    min-height: 90vh;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.5);
+    -moz-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
+    box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
+    border: 2px solid rgba(255, 255, 255, 0.075);
+    background-color: rgba(87, 43, 11, 0.199);
+    backdrop-filter: blur(30px);
+}

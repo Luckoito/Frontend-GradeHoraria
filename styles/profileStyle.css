@@ -1,0 +1,9 @@
+.header a{
+    text-decoration: none;
+}
+
+.header img {
+    max-height: 20px;
+    object-fit: contain;
+    overflow: hidden;
+}
