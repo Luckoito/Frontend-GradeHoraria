@@ -1,0 +1,93 @@
+[
+  {
+    "materiaId": 5,
+    "nome": "string",
+    "periodo": "string",
+    "turno": "string",
+    "dSemana": "string",
+    "sala": "string",
+    "professor": "string",
+    "cursoId": 2,
+    "userId": "d6dbc769-696a-49d2-abd6-ff147b84179c",
+    "applicationUser": null,
+    "cursos": null
+  },
+  {
+    "materiaId": 6,
+    "nome": "string",
+    "periodo": "string",
+    "turno": "string",
+    "dSemana": "string",
+    "sala": "string",
+    "professor": "string",
+    "cursoId": 2,
+    "userId": "d6dbc769-696a-49d2-abd6-ff147b84179c",
+    "applicationUser": null,
+    "cursos": null
+  },
+  {
+    "materiaId": 7,
+    "nome": "string",
+    "periodo": "string",
+    "turno": "string",
+    "dSemana": "string",
+    "sala": "string",
+    "professor": "string",
+    "cursoId": 2,
+    "userId": "d6dbc769-696a-49d2-abd6-ff147b84179c",
+    "applicationUser": null,
+    "cursos": null
+  },
+  {
+    "materiaId": 8,
+    "nome": "string",
+    "periodo": "string",
+    "turno": "string",
+    "dSemana": "string",
+    "sala": "string",
+    "professor": "string",
+    "cursoId": 2,
+    "userId": "d6dbc769-696a-49d2-abd6-ff147b84179c",
+    "applicationUser": null,
+    "cursos": null
+  },
+  {
+    "materiaId": 9,
+    "nome": "string",
+    "periodo": "string",
+    "turno": "string",
+    "dSemana": "string",
+    "sala": "string",
+    "professor": "string",
+    "cursoId": 2,
+    "userId": "d6dbc769-696a-49d2-abd6-ff147b84179c",
+    "applicationUser": null,
+    "cursos": null
+  },
+  {
+    "materiaId": 10,
+    "nome": "string",
+    "periodo": "string",
+    "turno": "string",
+    "dSemana": "string",
+    "sala": "string",
+    "professor": "string",
+    "cursoId": 2,
+    "userId": "d6dbc769-696a-49d2-abd6-ff147b84179c",
+    "applicationUser": null,
+    "cursos": null
+  },
+  {
+    "materiaId": 11,
+    "nome": "string",
+    "periodo": "string",
+    "turno": "string",
+    "dSemana": "string",
+    "sala": "string",
+    "professor": "string",
+    "cursoId": 2,
+    "userId": "d6dbc769-696a-49d2-abd6-ff147b84179c",
+    "applicationUser": null,
+    "cursos": null
+  }
+]
