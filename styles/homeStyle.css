@@ -9,6 +9,8 @@ p, a, h1, h2, h3{
     justify-content: center;
     align-items: center;
     margin-bottom: 1%;
+    width: fit-content;
+    margin-right: 1%;
 }
 
 .blockMenu img {
@@ -19,17 +21,24 @@ p, a, h1, h2, h3{
     object-fit: cover;
 }
 
+#profileBlock {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
 .perfilDetailsModule {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    max-width: 220px;
+    width: 220px;
     min-height: 350px;
     padding: 10%;
     transition: all 0.2s;
     transition-timing-function: ease;
     z-index: 2;
+    margin: 0px;
+    padding: 0px;
 }
 
 .perfilDetailsModule:hover {

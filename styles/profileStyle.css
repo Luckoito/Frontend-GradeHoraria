@@ -14,7 +14,7 @@
 }
 
 #profileEmail{
-    margin-top: 0px;
+    margin-top: 10px;
     padding-top: 0px;
     margin-bottom: 5px;
 }
@@ -32,4 +32,8 @@
     -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.5);
     -moz-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
     box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
+}
+
+hr {
+    width: 80%;
 }

@@ -7,7 +7,7 @@ body {
 }
 
 a, p, h1, h2, h3, input, label, ul{
-    color: rgb(253, 236, 217);
+    color: rgb(255, 255, 255);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
@@ -66,20 +66,15 @@ a, p, h1, h2, h3, input, label, ul{
     box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
     border: 2px solid rgba(255, 255, 255, 0.075);
     margin-top: 5%;
-    background-color: rgba(53, 46, 42, 0.466);
+    background-color: rgba(87, 43, 11, 0.199);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     flex-wrap: wrap;
 }
 
-.blockButtons .block:hover {
-    cursor: pointer;
-}
-
 .blockButton {
     width: 220px;
     z-index: 1;
-    cursor: pointer;
 }
 
 .block.blockButton {
@@ -89,6 +84,7 @@ a, p, h1, h2, h3, input, label, ul{
 
 .block.blockButton:hover {
     transform: scale(1.05);
+    cursor: pointer;
     background: rgba(56, 26, 2, 0.377);
 }
 
