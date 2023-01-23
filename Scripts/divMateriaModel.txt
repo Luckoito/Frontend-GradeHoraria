@@ -1,0 +1,23 @@
+<div class="block blockMateria">
+
+    <div class="blockMateriaTitle">
+        <h2 class="materiaNome"></h2>
+    </div>
+
+    <div class="materiaDetailsModule">
+        <p class="materiaSemestre"></p> <p class="materiaTurno"></p>
+    </div>
+
+    <p class="materiaCurso"></p>
+
+    <div class="blockMateriaTitle professor">
+
+            <div class="professorDetailsModule">
+                <p class="materiaDia"></p> <p class="materiaSala"></p>
+            </div>
+
+        <h2 class="materiaProfessor"></h2>
+
+    </div>
+
+</div>
