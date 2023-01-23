@@ -47,7 +47,6 @@ p, a, h1, h2, h3{
     background: rgba(46, 34, 28, 0.466);
 }
 
-
 .blockGradeFavoritos {
     display: flex;
     flex-direction: column;
@@ -58,68 +57,6 @@ p, a, h1, h2, h3{
 
 .blockGradeFavoritos h1 {
     font-size: 25px;
-}
-
-.blockMaterias{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-
-.blockMateria{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    text-align: center;
-    height: 400px;
-    width: 220px;
-    padding-inline: 25px;
-    padding-block: 20px;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.075);
-    margin-top: 20px;
-    margin-inline: 10px;
-}
-
-.blockMateria p, .blockMateria h2{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.blockMateriaTitle{
-    max-height: 30%;
-    width: 90%;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.185);
-    background-color: rgba(117, 99, 88, 0.486);
-    border-width: 3px;
-    padding: 10px;
-}
-
-.materiaDetailsModule {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.materiaDetailsModule p {
-    margin-inline: 5%;
-}
-
-.professorDetailsModule{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.professorDetailsModule p {
-    margin-inline: 5%;
 }
 
 .blockButtons {
