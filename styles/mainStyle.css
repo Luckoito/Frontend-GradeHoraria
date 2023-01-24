@@ -25,7 +25,7 @@ a, p, h1, h2, h3, input, label, ul, span{
 .mainBlock {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-start;
     width: 100%;
     height: fit-content;
@@ -189,7 +189,7 @@ input {
     text-align: center;
     border: 2px inset transparent;
     box-shadow: inset 2px 2px 10px rgba(118, 73, 59, 0.322);
-    border-radius: 2px;
+    border-radius: 6px;
     color: white;
     padding: 3%;
     width: 90%;

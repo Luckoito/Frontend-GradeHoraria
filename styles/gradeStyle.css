@@ -1,14 +1,22 @@
 .outerBlock {
     padding-inline: 0px !important;
+    margin: 0px !important;
 }
 
 #filters {
     overflow: hidden;
-    padding: 0px;
-    flex-wrap: nowrap;
+    padding-inline: 3% !important;
+    background-color: rgba(255, 222, 200, 0.342);
+    backdrop-filter: blur(30px);
+    position: fixed;
+    z-index: 1;
+    display: none;
 }
-#filterOthers {
-    padding-inline: 2% !important;
+
+.filterProf{
+    display: flex;
+    flex-direction: row;
+    padding-block: 1%;
 }
 
 .filterSalas {
@@ -25,9 +33,9 @@
 }
 
 .salasOptions {
-    width: 25%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: nowrap;
 }
 
@@ -36,8 +44,10 @@
     backdrop-filter: blur(30px);
     text-align: center;
     border: none;
-    border-radius: 2px;
+    border-radius: 10px;
     color: white;
+    height: 40px;
+
 }
 
 .salasOptions select * {
@@ -49,26 +59,19 @@
     width: 55%;
     justify-content: space-around;
     flex-wrap: nowrap;
-    margin-inline-start: 15px;
 }
 
-.filterMat {
-    width: 100%;
-}
-
-.filterButtons {
-    width: fit-content;
+#inputFilterMat {
+    margin-bottom: 10px;
 }
 
 .blockFilterButtons {
     display: flex;
     flex-direction: row;
     margin-bottom: 2%;
-    min-width: 410px;
-    max-width: fit-content;
+    width: 100%;
     justify-content: space-around;
     flex-wrap: nowrap;
-    margin-inline: 1%;
 }
 
 .blockButton h3{
@@ -79,7 +82,10 @@
     width: fit-content !important;
     height: fit-content !important;
     padding-inline: 10px !important;
-    margin: 0px !important;
+    margin-top: 0px !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 2% !important;
 }
 
 .blockButton:hover {

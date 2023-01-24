@@ -1,5 +1,7 @@
 const url = "https://localhost:7214/GetAllMaterias"
 
+
+
 fetch(url)
 .then ((resp) => resp.json())
 .then (function(data){
@@ -70,7 +72,7 @@ fetch(url)
             materiaDiv.appendChild(blockMateriaTitleP)
 
 
-        const mainDiv = document.getElementById("galleryMaterias")
+        const mainDiv = document.getElementById("seg")
         mainDiv.appendChild(materiaDiv)
 
     })

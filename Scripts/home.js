@@ -1,11 +1,11 @@
 const urlL = "https://localhost:7214/GetAllMaterias"
-// const urlT = "https://randomuser.me/api/?results=10" // Para testes 
+const urlT = "https://randomuser.me/api/?results=10" // Para testes 
 
 const userDetails = [...document.querySelectorAll("#profileName,#profileImage,#profileRole")]
 
 
 /* ---------------------------- Código para testes -------------------------
-
+*/
 fetch (urlT)
 .then ((resp) => resp.json())
 .then (function(data){
@@ -111,4 +111,3 @@ fetch(urlL)
     console.log(error)
     alert(error)
 })
-*/
