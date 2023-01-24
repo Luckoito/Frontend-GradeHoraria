@@ -50,7 +50,7 @@ a, p, h1, h2, h3, input, label, ul, span{
     background-color: rgba(87, 43, 11, 0.199);
     backdrop-filter: blur(30px);
     margin-inline: 2%;
-    margin-bottom: 1%%;
+    margin-bottom: 1%;
 }
 
 .block {
