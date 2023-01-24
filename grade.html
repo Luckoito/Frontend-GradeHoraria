@@ -16,30 +16,99 @@
 
             <div class="mainBlock" id="filters"> 
 
-                <div class="outerBlock filter">
-
+                <div class="outerBlock filter" id="filterProfessor">
+                    
                     <a href="./home.html"> 
                         <img src="./Media/Icons/backArrow.svg" alt="Seta de Voltar"> 
                         Voltar</a>
+                    
+                    <div class="block blockButton">
+                        
+                        <h3>Professor não definido</h3>
+                        
+                    </div>
 
-                    <p>adshajkash</p>
-                    <p>asdhaksjd</p>
-                    <p>askdjaskd</p>
+                    <input type="text" id="inputFilterProf" name="inputFilterProf" placeholder="Buscar professor">
+                    
+                </div>
+
+                <div class="outerBlock filter" id="filterButtons">
+                    
+
+                    <div class="blockFilterButtons" id="turno">
+
+                        <div class="block blockButton" id="buttonMat">
+                            <h3>Matutino</h3>
+                        </div>
+                        <div class="block blockButton" id="buttonNot">
+                            <h3>Noturno</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="blockFilterButtons" id="periodo">
+                        
+                        <div class="block blockButton" id="button1s">
+                            <h3>1° semestre</h3>
+                        </div>
+                        <div class="block blockButton" id="button2s">
+                            <h3>2° semestre</h3>
+                        </div>
+                        <div class="block blockButton" id="button3s">
+                            <h3>3° semestre</h3>
+                        </div>
+                        <div class="block blockButton" id="button4s">
+                            <h3>4° semestre</h3>
+                        </div>
+
+                    </div>
 
                 </div>
 
-                <div class="outerBlock filter">
-                <h1>Grade</h1>
-                    <p>adshajkash</p>
-                    <p>asdhaksjd</p>
-                    <p>askdjaskd</p>
-                </div>
+                <div class="outerBlock filter" id="filterOthers">
 
-                <div class="outerBlock filter">
-                    <h1>Gerar PDF</h1>
-                    <p>adshajkash</p>
-                    <p>asdhaksjd</p>
-                    <p>askdjaskd</p>
+                    <div class="filterSalas">
+                        
+                        <h3>Salas:</h3>
+
+                        <div class="salasOptions">
+                            <select name="filterSalas1" id="filterSalas1">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="Lab">Lab</option>
+                                <option value="EAD">EAD</option>
+                            </select>
+                            <span>.</span>
+                            <select name="filterSalas2" id="filterSalas2">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+
+                        <div class="salasButtons">
+                            <div class="block blockButton" id="buttonEAD">
+                                <h3>EAD</h3>
+                            </div>
+                            <div class="block blockButton" id="buttonSalaND">
+                                <h3>Sala não definida</h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="filterMat">
+                        <input type="text" name="inputFilterMat" id="inputFilterMat" placeholder="Buscar curso ou matéria">
+                    </div>
+
                 </div>
 
             </div>

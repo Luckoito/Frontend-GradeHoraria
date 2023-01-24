@@ -1,0 +1,87 @@
+.outerBlock {
+    padding-inline: 0px !important;
+}
+
+#filters {
+    overflow: hidden;
+    padding: 0px;
+    flex-wrap: nowrap;
+}
+#filterOthers {
+    padding-inline: 2% !important;
+}
+
+.filterSalas {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    min-width: 360px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filterSalas span {
+    margin-inline: 2px;
+}
+
+.salasOptions {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.salasOptions select {
+    background-color: rgba(87, 43, 11, 0.199);
+    backdrop-filter: blur(30px);
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    color: white;
+}
+
+.salasOptions select * {
+    background-color: rgba(87, 43, 11, 1);
+}
+
+.salasButtons {
+    display: flex;
+    width: 55%;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    margin-inline-start: 15px;
+}
+
+.filterMat {
+    width: 100%;
+}
+
+.filterButtons {
+    width: fit-content;
+}
+
+.blockFilterButtons {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2%;
+    min-width: 410px;
+    max-width: fit-content;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    margin-inline: 1%;
+}
+
+.blockButton h3{
+    font-size: 13px !important;
+}
+
+.blockButton {
+    width: fit-content !important;
+    height: fit-content !important;
+    padding-inline: 10px !important;
+    margin: 0px !important;
+}
+
+.blockButton:hover {
+    transform: scale(1) !important;
+}
