@@ -91,3 +91,23 @@
 .blockButton:hover {
     transform: scale(1) !important;
 }
+
+.turno {
+    display: flex;
+    flex-direction: column;
+}
+
+.curso {
+    display: flex;
+    flex-direction: column;
+}
+
+.semestre {
+    display: flex;
+    flex-direction: row;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+}

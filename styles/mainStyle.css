@@ -75,6 +75,7 @@ a, p, h1, h2, h3, input, label, ul, span{
 .blockButton {
     width: 220px;
     z-index: 1;
+    user-select: none;
 }
 
 .block.blockButton {
@@ -113,13 +114,12 @@ a, p, h1, h2, h3, input, label, ul, span{
     border: 2px solid rgba(255, 255, 255, 0.075);
     background-color: rgba(87, 43, 11, 0.199);
     backdrop-filter: blur(30px);
-    height: 4vh;
-    margin-top: 1%;
+    height: 3vh;
+    margin-block: 1%;
     padding-inline: 0.5%;
     padding-block: 1%;
     text-align: center;
     min-width: 300px;
-    min-height: 20px;
 }
 
 .blockMaterias{
@@ -136,14 +136,12 @@ a, p, h1, h2, h3, input, label, ul, span{
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
-    height: 320px;
-    width: 220px;
-    padding-inline: 25px;
     padding-block: 20px;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.075);
     margin-top: 20px;
     margin-inline: 10px;
+    width: fit-content;
 }
 
 .blockMateria p, .blockMateria h2{
@@ -152,18 +150,20 @@ a, p, h1, h2, h3, input, label, ul, span{
 }
 
 .blockMateriaTitle{
-    max-height: 30%;
-    width: 90%;
+    max-width: 220px;
     border-radius: 5px;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.185);
     background-color: rgba(117, 99, 88, 0.486);
-    border-width: 3px;
-    padding: 10px;
+    margin-inline: 10%;
+}
+
+.blockMateriaTitle h2 {
+    font-size: 15px !important;
+    margin-inline: 10px;
 }
 
 .materiaDetailsModule {
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -12,6 +12,16 @@
 
     <div class="content">
 
+        <div class="footer">
+            <a href="./home.html"> 
+                <img src="./Media/Icons/backArrow.svg" alt="Seta de Voltar"> 
+                Voltar</a>
+
+            <div class="block blockButton" id="filtersButton">
+                <h3 id="filterButtonText">Filtros</h3>
+            </div>
+        </div>
+
         <div class="mainBlock">
 
             <div class="outerBlock" id="filters">
@@ -32,7 +42,7 @@
 
                 <div class="filterSalas">
                     
-                    <h3>Salas:</h3>
+                    <h3>Sala:</h3>
 
                     <div class="salasOptions">
                         <select name="filterSalas1" id="filterSalas1">
@@ -105,15 +115,51 @@
 
             <div class="outerBlock">
             
-                <div class="blockMaterias" id="galleryMaterias">
+                <div class="turno" id="mat">
+                    <h1>Matutino</h1>
 
-                    <div class="blockGrade" id="seg"> <h1>Segunda-Feira</h1> </div>
-                    <div class="blockGrade" id="ter"> <h1>Terça-Feira</h1> </div>
-                    <div class="blockGrade" id="qua"> <h1>Quarta-Feira</h1> </div>
-                    <div class="blockGrade" id="qui"> <h1>Quinta-Feira</h1> </div>
-                    <div class="blockGrade" id="sex"> <h1>Sexta-Feira</h1> </div>
-                    <div class="blockGrade" id="sab"> <h1>Sábado</h1> </div>
-                    
+                    <div class="curso" id="cursoMat">
+                        <h1 class="cursoNome" id="CursoNomeMat">Nome do curso</h1>
+
+                            <div class="semestre">
+
+                                <div class="detail">
+                                    <h2 class="periodoNome" id="1Mat">
+                                        1°<br>Semestre
+                                    </h2>
+                                </div>
+
+                                <div class="detail">
+                                    <h2 class="dia"></h2>
+                                </div>
+
+                                <div class="detail">
+
+                                    <h2 class="Seg">Segunda-Feira</h2>
+
+                                </div>
+
+                                <div class="detail"></div>
+
+                                <div class="detail"></div>
+
+                                <div class="detail"></div>
+
+                                <div class="detail"></div>
+
+                                <div class="detail"></div>
+
+                            </div>
+
+
+                    </div>
+
+                </div>
+
+                <div id="not">
+
+
+
                 </div>
 
             </div>
@@ -121,6 +167,7 @@
         </div>
 
     </div>
+
 
 <script src="./Scripts/grade.js"></script>
 </body>
