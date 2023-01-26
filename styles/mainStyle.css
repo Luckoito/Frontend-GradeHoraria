@@ -25,7 +25,7 @@ a, p, h1, h2, h3, input, label, ul, span{
 .mainBlock {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
     width: 100%;
     height: fit-content;
@@ -90,7 +90,7 @@ a, p, h1, h2, h3, input, label, ul, span{
 }
 
 
-.footer a, .footer h1{
+.footer a, .footer h1, .footer img{
     text-decoration: none;
     margin-inline: 2%;
 }
@@ -120,67 +120,6 @@ a, p, h1, h2, h3, input, label, ul, span{
     padding-block: 1%;
     text-align: center;
     min-width: 300px;
-}
-
-.blockMaterias{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.blockMateria{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    text-align: center;
-    padding-block: 20px;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.075);
-    margin-top: 20px;
-    margin-inline: 10px;
-    width: fit-content;
-}
-
-.blockMateria p, .blockMateria h2{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.blockMateriaTitle{
-    max-width: 220px;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.185);
-    background-color: rgba(117, 99, 88, 0.486);
-    margin-inline: 10%;
-}
-
-.blockMateriaTitle h2 {
-    font-size: 15px !important;
-    margin-inline: 10px;
-}
-
-.materiaDetailsModule {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.materiaDetailsModule p {
-    margin-inline: 5%;
-}
-
-.professorDetailsModule{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.professorDetailsModule p {
-    margin-inline: 5%;
 }
 
 input {

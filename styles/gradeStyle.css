@@ -1,8 +1,3 @@
-.outerBlock {
-    padding-inline: 0px !important;
-    margin: 0px !important;
-}
-
 #filters {
     overflow: hidden;
     padding-inline: 3% !important;
@@ -92,22 +87,79 @@
     transform: scale(1) !important;
 }
 
+.outerBlock {
+    padding-inline: 0px !important;
+    margin: 0px !important;
+    backdrop-filter: blur(150px);
+}
+
 .turno {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .curso {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.075);
+    background-color: rgba(87, 43, 11, 0.199);
 }
 
 .semestre {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px;
+    height: auto;
+
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.5);
+    -moz-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
+    box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.50);
+    border: 2px solid rgba(255, 255, 255, 0.075);
+    background-color: rgba(87, 43, 11, 0.199);
 }
 
 .detail {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-inline: 10px;
+    border-width: 0px 2px 0px 0px;
+    border-color: rgba(255, 255, 255, 0.596);
+    border-style: solid;
 }
+
+.detail p {
+    border-width: 2px 0px 0px 0px;
+    border-color: rgba(255, 255, 255, 0.596);
+    border-style: solid;
+    padding-block: 20px;
+    margin: 0px;
+}
+
+/* .detail h2 {
+    border-width: 0px 0px 2px 0px;
+    border-color: rgba(255, 255, 255, 0.596);
+    border-style: solid;
+    margin: 0px;
+    padding-block: 15px;
+} */
+
+/* .separator {
+    width: 2px;
+    height: 100px;
+    background-color: white;
+} */
