@@ -1,4 +1,4 @@
-const urlL = "https://localhost:7214/GetAllMaterias"
+const urlL = "https://localhost:7214/Materias/GetAllMaterias"
 const urlT = "https://randomuser.me/api/?results=10" // Para testes 
 
 const userDetails = [...document.querySelectorAll("#profileName,#profileImage,#profileRole")]
