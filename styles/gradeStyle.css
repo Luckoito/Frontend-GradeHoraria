@@ -106,6 +106,8 @@
     justify-content: center;
     align-items: center;
     margin: 10px;
+    min-height: 70px;
+    min-width: 450px;
 
     border-radius: 5px;
     border: 2px solid rgba(255, 255, 255, 0.075);
@@ -150,16 +152,13 @@
     margin: 0px;
 }
 
-/* .detail h2 {
-    border-width: 0px 0px 2px 0px;
-    border-color: rgba(255, 255, 255, 0.596);
-    border-style: solid;
-    margin: 0px;
-    padding-block: 15px;
-} */
+.footer {
+    position: sticky;
+    top: 10px;
+    z-index: 1;
+}
 
-/* .separator {
-    width: 2px;
-    height: 100px;
-    background-color: white;
-} */
+#grade {
+    min-width: 200px;
+}
+
