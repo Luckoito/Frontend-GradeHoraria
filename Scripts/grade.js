@@ -24,7 +24,9 @@ filtersButton.addEventListener("click", () => {
     filtersBlock.style.display = filtersDisplay
 })
 
-
+let allCursos = []
+let allSemestres = []
+let allMaterias = []
 
 function createCurso (curso) {
 
@@ -45,6 +47,8 @@ function createCurso (curso) {
     } else if (curso.turno === "Noturno") {
         notDiv.appendChild(cursoDiv)
     }
+
+    allCursos.push(cursoDiv)
 
 }
 
@@ -84,6 +88,8 @@ function createSemestre (curso) {
 
     cursoDiv.appendChild(periodoDiv)
 
+    allSemestres.push(periodoDiv)
+
 }
 
 function createMateria (curso,materia) {
@@ -95,7 +101,7 @@ function createMateria (curso,materia) {
     let materiaInfoDiv = document.createElement("div")
     materiaInfoDiv.classList.add("detail")
     materiaInfoDiv.classList.add("materiaInfo")
-    materiaInfoDiv.id = cursoTurno + cursoNome + curso.periodo + materia.DSemana
+    materiaInfoDiv.id = cursoTurno + cursoNome + curso.periodo + materia.dSemana
 
         let diaNomeH2 = document.createElement("h2")
         diaNomeH2.classList.add("diaNome")
@@ -117,13 +123,22 @@ function createMateria (curso,materia) {
     
     periodoDiv.appendChild(materiaInfoDiv)
 
+    allMaterias.push(materiaInfoDiv)
+
+}
+
+function getDay (el,materias,dia) {
+    for (i = 0; i < materias.length; i++) {
+        let materia = materias[i]
+        if (materia.dSemana === dia) {
+            createMateria(el,materia)
+        }
+    }
 }
 
 fetch (urlCursos)
 .then ((resp) => resp.json())
 .then (function(data) {
-
-    console.log(data)
 
     let createdCursos = []
 
@@ -146,61 +161,33 @@ fetch (urlCursos)
         for (d = 0; d < 7; d++) {
             switch (d) {
                 case 0:
-                    for (i = 0; i < materias.length; i++) {
-                        let materia = materias[i]
-                        if (materia.dSemana === "Segunda-Feira") {
-                            createMateria(el,materia)
-                        }
-                    }
+                    getDay(el,materias,"Segunda-Feira")
                     break
+
                 case 1:
-                    for (i = 0; i < materias.length; i++) {
-                        let materia = materias[i]
-                        if (materia.dSemana === "Terça-Feira") {
-                            createMateria(el,materia)
-                        }
-                    }
+                    getDay(el,materias,"Terça-Feira")
                     break
+
                 case 2:
-                    for (i = 0; i < materias.length; i++) {
-                        let materia = materias[i]
-                        if (materia.dSemana === "Quarta-Feira") {
-                            createMateria(el,materia)
-                        }
-                    }
+                    getDay(el,materias,"Quarta-Feira")
                     break
+                    
                 case 3:
-                    for (i = 0; i < materias.length; i++) {
-                        let materia = materias[i]
-                        if (materia.dSemana === "Quinta-Feira") {
-                            createMateria(el,materia)
-                        }
-                    }
+                    getDay(el,materias,"Quinta-Feira")
                     break
+                    
                 case 4:
-                    for (i = 0; i < materias.length; i++) {
-                        let materia = materias[i]
-                        if (materia.dSemana === "Sexta-Feira") {
-                            createMateria(el,materia)
-                        }
-                    }
+                    getDay(el,materias,"Sexta-Feira")
                     break
+                    
                 case 5:
-                    for (i = 0; i < materias.length; i++) {
-                        let materia = materias[i]
-                        if (materia.dSemana === "Sábado/EAD") {
-                            createMateria(el,materia)
-                        }
-                    }
+                    getDay(el,materias,"Sábado/EAD")
                     break
+                    
                 case 6:
-                    for (i = 0; i < materias.length; i++) {
-                        let materia = materias[i]
-                        if (materia.dSemana === "Extensão/EAD") {
-                            createMateria(el,materia)
-                        }
-                    }
+                    getDay(el,materias,"Extensão/EAD")
                     break
+                    
             }
         }
     })
@@ -211,32 +198,7 @@ fetch (urlCursos)
 
 
 
-/* <div class="curso" id = "(Turno) + (nome do curso)">
-
-<h1 class="cursoNome">Nome do curso</h1>
-
-<div class="semestre" id="(turno) + (nome do curso) + (semestre do curso)">
-
-    <div class="detail semestreInfo">
-        <h2 class="semestreNome">
-            X°<br>Semestre
-        </h2>
-    </div>
-
-    <div class="detail salaInfo">
-        <h2 class="salaNome">
-            Sala <br> X.X
-        </h2>
-    </div>
-
-    <div class="detail materiaInfo" id="(turno) + (nome do curso) + (semestre do curso) + (dia da semana)">
-
-        <h2 class="diaNome">Segunda-Feira</h2>
-        <p class="materiaNome">Nome da matéria</p>
-        <p class="professorNome">Nome do professor</p>
-        
-    </div>
-
-</div>
-
-</div> */
+// Filtros:
+console.log(allCursos)
+console.log(allSemestres)
+console.log(allMaterias)
