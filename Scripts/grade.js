@@ -86,6 +86,39 @@ function createSemestre (curso) {
 
 }
 
+function createMateria (curso,materia) {
+
+    const cursoNome = curso.nome.replace(/\s/g, '')
+    const cursoTurno = curso.turno.replace(/\s/g, '')
+    const periodoDiv = document.querySelector("#"+cursoTurno+cursoNome+curso.periodo)
+
+    let materiaInfoDiv = document.createElement("div")
+    materiaInfoDiv.classList.add("detail")
+    materiaInfoDiv.classList.add("materiaInfo")
+    materiaInfoDiv.id = cursoTurno + cursoNome + curso.periodo + materia.DSemana
+
+        let diaNomeH2 = document.createElement("h2")
+        diaNomeH2.classList.add("diaNome")
+        diaNomeH2.innerHTML = materia.dSemana
+
+        materiaInfoDiv.appendChild(diaNomeH2)
+
+        let materiaNomeP = document.createElement("p")
+        materiaNomeP.classList.add("materiaNome")
+        materiaNomeP.innerHTML = materia.nome
+
+        materiaInfoDiv.appendChild(materiaNomeP)
+
+        let professorNomeP = document.createElement("p")
+        professorNomeP.classList.add("professorNome")
+        professorNomeP.innerHTML = materia.professor
+
+        materiaInfoDiv.appendChild(professorNomeP)
+    
+    periodoDiv.appendChild(materiaInfoDiv)
+
+}
+
 fetch (urlCursos)
 .then ((resp) => resp.json())
 .then (function(data) {
@@ -97,22 +130,86 @@ fetch (urlCursos)
     data.forEach((el) => {
 
         if (createdCursos.includes(el.nome + " " + el.turno)) {
-            console.log("O elemento " + el.nome + " " + el.turno + " já existe")
+
+            console.log("Curso repetido ignorado: " + el.nome + " " + el.turno)
+
         } else {
+
             createdCursos.push(el.nome + " " + el.turno)
             createCurso(el)
         }
 
         createSemestre(el)
 
-    });
+        let materias = el.materias
 
-    console.log(createdCursos)
-
+        for (d = 0; d < 7; d++) {
+            switch (d) {
+                case 0:
+                    for (i = 0; i < materias.length; i++) {
+                        let materia = materias[i]
+                        if (materia.dSemana === "Segunda-Feira") {
+                            createMateria(el,materia)
+                        }
+                    }
+                    break
+                case 1:
+                    for (i = 0; i < materias.length; i++) {
+                        let materia = materias[i]
+                        if (materia.dSemana === "Terça-Feira") {
+                            createMateria(el,materia)
+                        }
+                    }
+                    break
+                case 2:
+                    for (i = 0; i < materias.length; i++) {
+                        let materia = materias[i]
+                        if (materia.dSemana === "Quarta-Feira") {
+                            createMateria(el,materia)
+                        }
+                    }
+                    break
+                case 3:
+                    for (i = 0; i < materias.length; i++) {
+                        let materia = materias[i]
+                        if (materia.dSemana === "Quinta-Feira") {
+                            createMateria(el,materia)
+                        }
+                    }
+                    break
+                case 4:
+                    for (i = 0; i < materias.length; i++) {
+                        let materia = materias[i]
+                        if (materia.dSemana === "Sexta-Feira") {
+                            createMateria(el,materia)
+                        }
+                    }
+                    break
+                case 5:
+                    for (i = 0; i < materias.length; i++) {
+                        let materia = materias[i]
+                        if (materia.dSemana === "Sábado/EAD") {
+                            createMateria(el,materia)
+                        }
+                    }
+                    break
+                case 6:
+                    for (i = 0; i < materias.length; i++) {
+                        let materia = materias[i]
+                        if (materia.dSemana === "Extensão/EAD") {
+                            createMateria(el,materia)
+                        }
+                    }
+                    break
+            }
+        }
+    })
 })
 .catch (function(error){
     console.log(error)
-})
+});
+
+
 
 /* <div class="curso" id = "(Turno) + (nome do curso)">
 
