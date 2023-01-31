@@ -202,3 +202,42 @@ fetch (urlCursos)
 console.log(allCursos)
 console.log(allSemestres)
 console.log(allMaterias)
+
+let varFilterCursos = false
+let varFilterSemestres = false
+let varFilterMaterias = false
+
+function filter (arr,srch) {
+
+    let results = arr.filter((el) => {
+        return el.id.includes(srch)
+    })
+    return results
+
+}
+
+function filterDisplay (originalArray,filteredArray) {
+
+    originalArray.forEach((el) => {
+        el.style.display = "none"
+      })
+    
+      filteredArray.forEach((el) => {
+        el.style.display = "flex"
+      })
+
+}
+
+let filterSemestre1Button = document.querySelector("#button1s")
+filterSemestre1Button.addEventListener("click", () => {
+
+    if (varFilterSemestres === true) {
+        varFilterSemestres = false
+    } else {
+        varFilterSemestres = true
+
+        let filteredSemestres = filter(allSemestres,"1")
+        filterDisplay (allSemestres,filteredSemestres)
+    }
+
+})
