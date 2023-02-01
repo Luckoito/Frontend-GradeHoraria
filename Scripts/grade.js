@@ -4,6 +4,9 @@ const urlCursos = "https://localhost:7214/Cursos/GetAllCursos"
 const matDiv = document.getElementById("mat")
 const notDiv = document.getElementById("not")
 
+const colorActive = "rgba(173, 81, 15, 0.651)"
+const colorButton = "rgba(87, 43, 11, 0.199)"
+
 let filtersBlock = document.querySelector("#filters")
 let filtersButton = document.querySelector("#filtersButton")
 
@@ -16,9 +19,11 @@ filtersButton.addEventListener("click", () => {
     if (filtersDisplay === "none" || filtersDisplay === "") {
         filtersDisplay = "flex"
         filtersButtonText.innerHTML = "Ocultar"
+        filtersButton.style.backgroundColor = colorActive
     } else {
         filtersDisplay = "none"
         filtersButtonText.innerHTML = "Filtros"
+        filtersButton.style.backgroundColor = colorButton
     }
 
     filtersBlock.style.display = filtersDisplay
@@ -27,6 +32,8 @@ filtersButton.addEventListener("click", () => {
 let allCursos = []
 let allSemestres = []
 let allMaterias = []
+
+// Funções de preenchimento -----------------------------------
 
 function createCurso (curso) {
 
@@ -136,6 +143,9 @@ function getDay (el,materias,dia) {
     }
 }
 
+
+// Fetch de dados ----------------------------
+
 fetch (urlCursos)
 .then ((resp) => resp.json())
 .then (function(data) {
@@ -198,46 +208,167 @@ fetch (urlCursos)
 
 
 
-// Filtros:
-console.log(allCursos)
-console.log(allSemestres)
-console.log(allMaterias)
+// Filtros -----------------------------------
 
-let varFilterCursos = false
-let varFilterSemestres = false
-let varFilterMaterias = false
+function convertString (string){
+    let normalized = string.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return normalized.replace(/\s/g, '')
+  }
 
-function filter (arr,srch) {
+    // Filtros de semestre -------------------
 
-    let results = arr.filter((el) => {
-        return el.id.includes(srch)
-    })
-    return results
+let FS = []
+let FSvalues = []
 
-}
+function defineSemestreFilter (semestre,button) {
 
-function filterDisplay (originalArray,filteredArray) {
-
-    originalArray.forEach((el) => {
-        el.style.display = "none"
-      })
-    
-      filteredArray.forEach((el) => {
-        el.style.display = "flex"
-      })
-
-}
-
-let filterSemestre1Button = document.querySelector("#button1s")
-filterSemestre1Button.addEventListener("click", () => {
-
-    if (varFilterSemestres === true) {
-        varFilterSemestres = false
+    if (FS[semestre] === true) {
+        FS [semestre] = false
     } else {
-        varFilterSemestres = true
-
-        let filteredSemestres = filter(allSemestres,"1")
-        filterDisplay (allSemestres,filteredSemestres)
+        FS [semestre] = true
     }
 
+    updateFSvalues()
+    updateGrade()
+
+    if (FS [semestre] === true) {
+        button.style.backgroundColor = colorActive
+    } else if (FS [semestre] === false) {
+        button.style.backgroundColor = colorButton
+    }
+}
+
+let buttonFS1 = document.querySelector("#button1s")
+buttonFS1.addEventListener("click", () => {
+
+    defineSemestreFilter(1,buttonFS1)
+    
 })
+
+let buttonFS2 = document.querySelector("#button2s")
+buttonFS2.addEventListener("click", () => {
+
+    defineSemestreFilter(2,buttonFS2)
+    
+})
+
+let buttonFS3 = document.querySelector("#button3s")
+buttonFS3.addEventListener("click", () => {
+
+    defineSemestreFilter(3,buttonFS3)
+    
+})
+
+let buttonFS4 = document.querySelector("#button4s")
+buttonFS4.addEventListener("click", () => {
+
+    defineSemestreFilter(4,buttonFS4)
+    
+})
+
+function updateFSvalues () {
+
+    FSvalues = []
+    FS.forEach((el, index) => {
+        if (el === true) {
+            FSvalues.push(index)
+        }
+    })
+}
+
+    // Filtros de turno ----------------------
+
+let FT = {
+    mat: false,
+    not: false
+}
+
+function defineTurnoFilter (turno,button) {
+
+    if (FT[turno] === true) {
+        FT[turno] = false
+        button.style.backgroundColor = colorButton
+    } else if (FT[turno] === false) {
+        FT[turno] = true
+        button.style.backgroundColor = colorActive
+    }
+
+    updateGrade()
+
+}
+
+let buttonFTM = document.querySelector("#buttonMat")
+buttonFTM.addEventListener("click", () => {
+    
+    defineTurnoFilter("mat",buttonFTM)
+
+})
+
+
+let buttonFTN = document.querySelector("#buttonNot")
+buttonFTN.addEventListener("click", () => {
+    
+    defineTurnoFilter("not",buttonFTN)
+
+})
+
+    // Filtros de curso e matéria ----------------------
+
+let FCMbox = document.querySelector("#inputFilterMat")
+FCMbox.addEventListener("input", () => {
+
+    let search = convertString(FCMbox.value)
+    defineCMfilter(search)
+
+})
+
+function defineCMfilter (search) {
+
+    let FCM = document.querySelectorAll()
+    console.log(FCM)
+
+}
+
+    // Atualização final ---------------------
+function updateGrade () {
+    
+    //Filtrar semestre::::::::::::::::::::::
+    if (FSvalues.length !== 0) {
+        
+        let resultSemestre = []
+
+        FSvalues.forEach((value)=>{
+            allSemestres.forEach((semestre)=>{
+                
+                if (semestre.id.includes(value)){
+                    resultSemestre.push(semestre)
+                }
+
+                semestre.style.display = "none"
+            })
+        })
+
+        resultSemestre.forEach((semestre)=>{
+            semestre.style.display = "flex"
+        })
+
+    } else {
+        allSemestres.forEach((semestre)=>{
+            semestre.style.display = "flex"
+        })
+    }
+
+    //Filtrar turno:::::::::::::::::::::::::
+    if (FT.mat === FT.not) {
+        
+        matDiv.style.display = "flex"
+        notDiv.style.display = "flex"
+    } else {
+
+        if (FT.mat === true) {
+            notDiv.style.display = "none"
+        } else if (FT.not === true) {
+            matDiv.style.display = "none"
+        }
+    }
+}
