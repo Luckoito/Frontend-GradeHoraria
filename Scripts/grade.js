@@ -33,12 +33,17 @@ let allCursos = []
 let allSemestres = []
 let allMaterias = []
 
+function convertString (string){
+    let normalized = string.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return normalized.replace(/\s/g, '')
+  }
+
 // Funções de preenchimento -----------------------------------
 
 function createCurso (curso) {
 
-    const cursoNome = curso.nome.replace(/\s/g, '')
-    const cursoTurno = curso.turno.replace(/\s/g, '')
+    const cursoNome = convertString(curso.nome)
+    const cursoTurno = convertString(curso.turno)
 
     const cursoDiv = document.createElement("div")
     cursoDiv.classList.add("curso")
@@ -61,8 +66,8 @@ function createCurso (curso) {
 
 function createSemestre (curso) {
 
-    const cursoNome = curso.nome.replace(/\s/g, '')
-    const cursoTurno = curso.turno.replace(/\s/g, '')
+    const cursoNome = convertString(curso.nome)
+    const cursoTurno = convertString(curso.turno)
     const cursoDiv = document.querySelector("#"+cursoTurno+cursoNome)
     
     let periodoDiv = document.createElement("div")
@@ -101,14 +106,15 @@ function createSemestre (curso) {
 
 function createMateria (curso,materia) {
 
-    const cursoNome = curso.nome.replace(/\s/g, '')
-    const cursoTurno = curso.turno.replace(/\s/g, '')
+    const cursoNome = convertString(curso.nome)
+    const cursoTurno = convertString(curso.turno)
+    const materiaNome = convertString(materia.nome)
     const periodoDiv = document.querySelector("#"+cursoTurno+cursoNome+curso.periodo)
 
     let materiaInfoDiv = document.createElement("div")
     materiaInfoDiv.classList.add("detail")
     materiaInfoDiv.classList.add("materiaInfo")
-    materiaInfoDiv.id = cursoTurno + cursoNome + curso.periodo + materia.dSemana
+    materiaInfoDiv.id = cursoTurno + cursoNome + curso.periodo + materia.dSemana + materiaNome
 
         let diaNomeH2 = document.createElement("h2")
         diaNomeH2.classList.add("diaNome")
@@ -118,6 +124,7 @@ function createMateria (curso,materia) {
 
         let materiaNomeP = document.createElement("p")
         materiaNomeP.classList.add("materiaNome")
+        materiaNomeP.id = materiaNome
         materiaNomeP.innerHTML = materia.nome
 
         materiaInfoDiv.appendChild(materiaNomeP)
@@ -130,7 +137,10 @@ function createMateria (curso,materia) {
     
     periodoDiv.appendChild(materiaInfoDiv)
 
-    allMaterias.push(materiaInfoDiv)
+    allMaterias.push({
+        div: materiaInfoDiv,
+        nome: materiaNome
+        })
 
 }
 
@@ -209,11 +219,6 @@ fetch (urlCursos)
 
 
 // Filtros -----------------------------------
-
-function convertString (string){
-    let normalized = string.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    return normalized.replace(/\s/g, '')
-  }
 
     // Filtros de semestre -------------------
 
@@ -314,25 +319,31 @@ buttonFTN.addEventListener("click", () => {
 
     // Filtros de curso e matéria ----------------------
 
-let FCMbox = document.querySelector("#inputFilterMat")
-FCMbox.addEventListener("input", () => {
+let stringFC = ""
+let stringFM = ""
 
-    let search = convertString(FCMbox.value)
-    defineCMfilter(search)
+let FCbox = document.querySelector("#inputFilterCurso")
+FCbox.addEventListener("input", () => {
+
+    let searchInput = convertString(FCbox.value)
+    stringFC = searchInput
+    updateGrade()
 
 })
 
-function defineCMfilter (search) {
+let FMbox = document.querySelector("#inputFilterMateria")
+FMbox.addEventListener("input", () => {
 
-    let FCM = document.querySelectorAll()
-    console.log(FCM)
+    let searchInput = convertString(FMbox.value)
+    stringFM = searchInput
+    updateGrade()
 
-}
+})
 
     // Atualização final ---------------------
 function updateGrade () {
     
-    //Filtrar semestre::::::::::::::::::::::
+    //Atualizar semestre::::::::::::::::::::::
     if (FSvalues.length !== 0) {
         
         let resultSemestre = []
@@ -358,7 +369,7 @@ function updateGrade () {
         })
     }
 
-    //Filtrar turno:::::::::::::::::::::::::
+    //Atualizar turno:::::::::::::::::::::::::
     if (FT.mat === FT.not) {
         
         matDiv.style.display = "flex"
@@ -371,4 +382,51 @@ function updateGrade () {
             matDiv.style.display = "none"
         }
     }
+
+    // Atualizar curso:::::::::::::::::::::::::
+    
+    if (stringFC != "") {
+        allCursos.forEach((curso)=>{
+            if (curso.id.includes(stringFC)) {
+                curso.style.display = "flex"
+            } else {
+                curso.style.display = "none"
+            }
+        })
+    }
+
+    // Atualizar materia:::::::::::::::::::::::::
+
+/*     let semestreCorr = []
+    console.log(semestreCorr)
+
+    if (stringFM != " ") {
+        allMaterias.forEach((materia)=>{
+            if (materia.nome.includes(stringFM)) {
+                materia.div.style.display = "flex"
+                semestreCorr.push(materia.div.parentNode)
+            } else {
+                materia.div.style.display = "none"
+            }
+        })
+        semestreCorr.forEach((el)=>{
+            allSemestres.forEach((semestre)=>{
+                if (semestre.id === el.id) {
+                    semestre.style.display = "flex"
+                } else {
+                    semestre.style.display = "none"
+                }
+            })
+        })
+    } else {
+        allSemestres.forEach((semestre)=>{
+            semestre.style.display = "flex"
+        })
+        allMaterias.forEach((materia)=>{
+            materia.style.display = "flex"
+        })
+        allCursos.forEach((curso) => {
+            curso.style.display = "flex"
+        })
+    } */
 }

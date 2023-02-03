@@ -56,8 +56,17 @@
     flex-wrap: nowrap;
 }
 
-#inputFilterMat {
+.filterInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+#inputFilterMateria, #inputFilterCurso {
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .blockFilterButtons {
