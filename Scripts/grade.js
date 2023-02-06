@@ -340,36 +340,103 @@ FMbox.addEventListener("input", () => {
 
 })
 
-    // Atualização final ---------------------
+    // Atualização geral ---------------------
+
+function hideElements (array,div) {
+    array.forEach((el)=>{
+        if (div == true){
+            el.div.style.display = "none"
+        }else{
+            el.style.display = "none"
+        }
+    })
+}
+
+function showElements (array,div) {
+    array.forEach((el)=>{
+        if (div == true){
+            el.div.style.display = "flex"
+        }else{
+            el.style.display = "flex"
+        }
+    })
+}
+
 function updateGrade () {
     
+    let finalMat = []
+    let finalSem = []
+    let finalCur = []
+
+    // Atualizar materia:::::::::::::::::::::::::
+    if (stringFM !== "") {
+        allMaterias.forEach((materia)=>{
+            if (materia.nome.includes(stringFM)) {
+                finalMat.push(materia.div)
+            }
+        })
+    }
+        
     //Atualizar semestre::::::::::::::::::::::
     if (FSvalues.length !== 0) {
-        
-        let resultSemestre = []
-
         FSvalues.forEach((value)=>{
             allSemestres.forEach((semestre)=>{
                 
                 if (semestre.id.includes(value)){
-                    resultSemestre.push(semestre)
+                    finalSem.push(semestre)
                 }
-
-                semestre.style.display = "none"
             })
-        })
-
-        resultSemestre.forEach((semestre)=>{
-            semestre.style.display = "flex"
-        })
-
-    } else {
-        allSemestres.forEach((semestre)=>{
-            semestre.style.display = "flex"
         })
     }
 
-    //Atualizar turno:::::::::::::::::::::::::
+    // Atualizar curso:::::::::::::::::::::::::
+    if (stringFC !== "") {
+        allCursos.forEach((curso)=>{
+            if (curso.id.includes(stringFC)) {
+                finalCur.push(curso)
+            }
+        })
+    }
+
+    //Atualização final::::::::::::::::::::::::
+    //Matéria
+    if (finalMat.length == 0) {
+        showElements(allMaterias,true)
+    } else {
+        hideElements(allMaterias,true)
+        showElements(finalMat,false)
+        finalMat.forEach((materia)=>{
+            finalSem.push(materia.parentNode)
+        })
+    }
+    //Semestre
+    if (finalSem.length == 0) {
+        showElements(allSemestres,false)
+    } else {
+        hideElements(allSemestres,false)
+        showElements(finalSem,false)
+        finalSem.forEach((semestre) => {
+            if (!finalCur.find((curso)=>{return semestre.parentNode === curso})) {
+                finalCur.push(semestre.parentNode)
+            }
+            console.log(finalCur)
+        });
+    }
+    //Curso
+    if (finalCur == 0) {
+        showElements(allCursos,false)
+    }else{
+        hideElements(allCursos,false)
+        showElements(finalCur,false)
+        finalCur.forEach(curso => {
+            if (curso.id.includes("MAT")) {
+                FT.mat = true
+            } else if (curso.id.includes("NOT")) {
+                FT.not = false
+            }
+        })
+    }
+    //Turno
     if (FT.mat === FT.not) {
         
         matDiv.style.display = "flex"
@@ -382,51 +449,4 @@ function updateGrade () {
             matDiv.style.display = "none"
         }
     }
-
-    // Atualizar curso:::::::::::::::::::::::::
-    
-    if (stringFC != "") {
-        allCursos.forEach((curso)=>{
-            if (curso.id.includes(stringFC)) {
-                curso.style.display = "flex"
-            } else {
-                curso.style.display = "none"
-            }
-        })
-    }
-
-    // Atualizar materia:::::::::::::::::::::::::
-
-/*     let semestreCorr = []
-    console.log(semestreCorr)
-
-    if (stringFM != " ") {
-        allMaterias.forEach((materia)=>{
-            if (materia.nome.includes(stringFM)) {
-                materia.div.style.display = "flex"
-                semestreCorr.push(materia.div.parentNode)
-            } else {
-                materia.div.style.display = "none"
-            }
-        })
-        semestreCorr.forEach((el)=>{
-            allSemestres.forEach((semestre)=>{
-                if (semestre.id === el.id) {
-                    semestre.style.display = "flex"
-                } else {
-                    semestre.style.display = "none"
-                }
-            })
-        })
-    } else {
-        allSemestres.forEach((semestre)=>{
-            semestre.style.display = "flex"
-        })
-        allMaterias.forEach((materia)=>{
-            materia.style.display = "flex"
-        })
-        allCursos.forEach((curso) => {
-            curso.style.display = "flex"
-        })
-    } */
 }
