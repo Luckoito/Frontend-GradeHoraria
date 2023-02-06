@@ -32,20 +32,25 @@
     margin: 10px;
 }
 
-#pendencia {
-    color: yellow;
+.blockButton {
+    margin: 0px;
+    padding: 0px;
+    width: fit-content;
 }
 
-#content {
-    max-width: 150vh;
+.blockButton p {
+    margin: 0px;
+    padding: 10px;
 }
 
-#titleRow {
-    width: 100%;
+.blockTitle {
+    width: 60vh;
     justify-content: space-around;
-    align-items: center;
 }
 
-#titleRow h1{
-    font-size: 30px;
+.galleryMaterias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
