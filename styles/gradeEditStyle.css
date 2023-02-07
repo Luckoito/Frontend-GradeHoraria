@@ -15,20 +15,17 @@
     flex-wrap: wrap;
 }
 
-.materia {
-    padding: 15px;
-    margin-inline: 2%;
+.blockMateria {
     border-radius: 10px;
     -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
     -moz-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
     box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
     border: 2px solid rgba(255, 255, 255, 0.075);
-    background-color: rgba(87, 43, 11, 0.527);
-    max-width: 175px;
+    max-width: 240px;
     margin-top: 20px;
 }
 
-.materia p {
+.blockMateria p {
     margin: 10px;
 }
 
@@ -41,11 +38,6 @@
 .blockButton p {
     margin: 0px;
     padding: 10px;
-}
-
-.blockTitle {
-    width: 60vh;
-    justify-content: space-around;
 }
 
 .galleryMaterias {
