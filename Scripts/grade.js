@@ -1,4 +1,3 @@
-const urlMaterias = "https://localhost:7214/Materias/GetAllMaterias"
 const urlCursos = "https://localhost:7214/Cursos/GetAllCursos"
 
 const matDiv = document.getElementById("mat")
