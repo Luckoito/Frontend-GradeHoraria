@@ -7,27 +7,37 @@ const notDiv = document.getElementById("not")
 const colorActive = "rgba(173, 81, 15, 0.651)"
 const colorButton = "rgba(87, 43, 11, 0.199)"
 
-let filtersBlock = document.querySelector("#filters")
 let filtersButton = document.querySelector("#filtersButton")
+let filtersBG = document.querySelector("#filtersBG")
+let filtersBlock = document.querySelector("#filters")
+let closeButton = document.querySelector("#closeButton")
+let showFilters = false
 
 filtersButton.addEventListener("click", () => {
-
-    let filtersButtonText = document.querySelector("#filterButtonText")
-    
-    let filtersDisplay = filtersBlock.style.display
-
-    if (filtersDisplay === "none" || filtersDisplay === "") {
-        filtersDisplay = "flex"
-        filtersButtonText.innerHTML = "Ocultar"
-        filtersButton.style.backgroundColor = colorActive
-    } else {
-        filtersDisplay = "none"
-        filtersButtonText.innerHTML = "Filtros"
-        filtersButton.style.backgroundColor = colorButton
-    }
-
-    filtersBlock.style.display = filtersDisplay
+    showFilters = true
+    updateFDIV ()
 })
+
+filtersBG.addEventListener("click", () => {
+    showFilters = false
+    updateFDIV ()
+})
+
+closeButton.addEventListener("click", () => {
+    showFilters = false
+    updateFDIV ()
+})
+
+function updateFDIV () {
+    if (showFilters === true) {
+        filtersBlock.style.display = "flex"
+        filtersBG.style.display = "flex"
+
+    } else {
+        filtersBG.style.display = "none"
+        filtersBlock.style.display = "none"
+    }
+}
 
 let allCursos = []
 let allSemestres = []
@@ -164,12 +174,7 @@ fetch (urlCursos)
 
     data.forEach((el) => {
 
-        if (createdCursos.includes(el.nome + " " + el.turno)) {
-
-            console.log("Curso repetido ignorado: " + el.nome + " " + el.turno)
-
-        } else {
-
+        if (!createdCursos.includes(el.nome + " " + el.turno)) {
             createdCursos.push(el.nome + " " + el.turno)
             createCurso(el)
         }
@@ -293,11 +298,13 @@ function defineTurnoFilter (turno,button) {
     if (FT[turno] === true) {
         FT[turno] = false
         button.style.backgroundColor = colorButton
+        console.log(FT)
     } else if (FT[turno] === false) {
         FT[turno] = true
         button.style.backgroundColor = colorActive
+        console.log(FT)
     }
-
+    
     updateGrade()
 
 }
@@ -308,7 +315,6 @@ buttonFTM.addEventListener("click", () => {
     defineTurnoFilter("mat",buttonFTM)
 
 })
-
 
 let buttonFTN = document.querySelector("#buttonNot")
 buttonFTN.addEventListener("click", () => {
@@ -336,6 +342,32 @@ FMbox.addEventListener("input", () => {
 
     let searchInput = convertString(FMbox.value)
     stringFM = searchInput
+    updateGrade()
+
+})
+
+    // Limpar filtros ----------------------------------
+
+let clearButton = document.querySelector("#buttonClear")
+clearButton.addEventListener("click", ()=>{
+
+    FCbox.value = ""
+    FMbox.value = ""
+    stringFC = ""
+    stringFM = ""
+
+    FT.mat = false
+    FT.not = false
+    buttonFTM.style.backgroundColor = colorButton
+    buttonFTN.style.backgroundColor = colorButton
+
+    FS = []
+    FSvalues = []
+    buttonFS1.style.backgroundColor = colorButton
+    buttonFS2.style.backgroundColor = colorButton
+    buttonFS3.style.backgroundColor = colorButton
+    buttonFS4.style.backgroundColor = colorButton
+
     updateGrade()
 
 })
@@ -399,43 +431,6 @@ function updateGrade () {
     }
 
     //Atualização final::::::::::::::::::::::::
-    //Matéria
-    if (finalMat.length == 0) {
-        showElements(allMaterias,true)
-    } else {
-        hideElements(allMaterias,true)
-        showElements(finalMat,false)
-        finalMat.forEach((materia)=>{
-            finalSem.push(materia.parentNode)
-        })
-    }
-    //Semestre
-    if (finalSem.length == 0) {
-        showElements(allSemestres,false)
-    } else {
-        hideElements(allSemestres,false)
-        showElements(finalSem,false)
-        finalSem.forEach((semestre) => {
-            if (!finalCur.find((curso)=>{return semestre.parentNode === curso})) {
-                finalCur.push(semestre.parentNode)
-            }
-            console.log(finalCur)
-        });
-    }
-    //Curso
-    if (finalCur == 0) {
-        showElements(allCursos,false)
-    }else{
-        hideElements(allCursos,false)
-        showElements(finalCur,false)
-        finalCur.forEach(curso => {
-            if (curso.id.includes("MAT")) {
-                FT.mat = true
-            } else if (curso.id.includes("NOT")) {
-                FT.not = false
-            }
-        })
-    }
     //Turno
     if (FT.mat === FT.not) {
         
@@ -448,5 +443,36 @@ function updateGrade () {
         } else if (FT.not === true) {
             matDiv.style.display = "none"
         }
+    }
+    //Curso
+    if (finalCur == 0) {
+        showElements(allCursos,false)
+    }else{
+        hideElements(allCursos,false)
+        showElements(finalCur,false)
+    }
+    //Semestre
+    if (finalSem.length == 0) {
+        showElements(allSemestres,false)
+    } else {
+        hideElements(allSemestres,false)
+        showElements(finalSem,false)
+    }
+    //Matéria
+    if (finalMat.length == 0) {
+        showElements(allMaterias,true)
+    } else if (finalCur.length == 0 && finalSem.length == 0) {
+        finalMat.forEach((materia)=>{
+            finalSem.push(materia.parentNode)
+            finalCur.push(materia.parentNode.parentNode)
+            hideElements(allCursos,false)
+            showElements(finalCur,false)
+            hideElements(allSemestres,false)
+            showElements(finalSem,false)
+            hideElements(allMaterias,true)
+            showElements(finalMat,false)
+        })} else {
+        hideElements(allMaterias,true)
+        showElements(finalMat,false)   
     }
 }
