@@ -15,24 +15,52 @@
 
         <div class="footer">
 
-            <a href="./home.html"> 
-                Voltar</a>
+            <a href="./home.html"> Voltar</a>
 
-            <div class="block blockButton">
-                <p>Filtrar</p>
-            </div>
+            <h1>Editar</h1>
 
             <h1>Senac</h1>
 
         </div>
+        
+        <div class="sectionV">
 
-        <div class="outerBlock">
+            <div class="welcomeBlock outerBlock">
+                <h1>Olá, -Role-</h1>
 
-            <div class="sectionV">
+                <div class="sectionH menuSection">
+                    <div class="block blockButton" id="buttonEditCursos">
+                        <p>Editar Cursos</p>
+                    </div>
+                    <div class="block blockButton" id="buttonEditMaterias">
+                        <p>Editar Matérias</p>
+                    </div>
+                </div>
+            </div>
 
-                <h1>Matérias que você administra:</h1>
+            <div class="cursosBlock outerBlock">
+                <h1>Cursos que você administra:</h1>
+    
+                <div class="galleryCursos">
+    
+                    <template id="tempCurso">
+                        <div class="block blockCurso">
+    
+                            <div class="blockCursoTitle">
+                                <h2 class="cursoNome"></h2>
+                            </div>
+                            
+                        </div>
+                    </template>
+                </div>
+            </div>
 
-                <div class="sectionH">
+            <div class="materiasBlock outerBlock">
+
+                <div class="sectionV">
+
+                    <h1>Matérias que você administra:</h1>
+
                     <div class="galleryMaterias">
 
                         <template id="tempMateria">
@@ -60,12 +88,11 @@
                                 
                             </div>
                         </template>
+
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
     
 <script src="./Scripts/gradeEdit.js"></script>

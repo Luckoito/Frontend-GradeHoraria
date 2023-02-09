@@ -12,10 +12,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex-wrap: wrap;
 }
 
-.blockMateria {
+.blockMateria, .blockCurso {
     border-radius: 10px;
     -webkit-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
     -moz-box-shadow: 0px 4px 17px -1px rgba(31, 15, 0, 0.205);
@@ -23,16 +22,27 @@
     border: 2px solid rgba(255, 255, 255, 0.075);
     max-width: 240px;
     margin-top: 20px;
+    transition: all 0.2s;
 }
 
-.blockMateria p {
+.blockMateria:hover, .blockCurso:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.blockMateria p, .blockCurso p {
     margin: 10px;
+    font-size: 18px;
 }
 
 .blockButton {
     margin: 0px;
     padding: 0px;
     width: fit-content;
+}
+
+.blockButton:hover {
+    transform: scale(1) !important;
 }
 
 .blockButton p {
@@ -45,4 +55,37 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.galleryCursos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.outerBlock {
+    backdrop-filter: blur(200px);
+}
+
+.cursosBlock, .materiasBlock {
+    transition: all 1s;
+    display: none;
+}
+
+.welcomeBlock {
+    min-width: 300px;
+}
+
+.welcomeBlock h1{
+    font-size: 25px;
+}
+
+.menuSection {
+    width: 100%;
+    justify-content: space-around;
+}
+
+.footer {
+    max-width: 50px;
 }
